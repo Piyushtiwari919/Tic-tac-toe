@@ -3,6 +3,7 @@ let reset_btn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#newgame-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector(".msg")
+const mainCont = document.querySelector("main");
 
 let turn0 = true;
 
@@ -17,6 +18,7 @@ const resetGame=()=>{
     count=0;
     enableBoxes();
     msgContainer.classList.add("hide");
+    mainCont.style.display="flex";
 }
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
@@ -53,10 +55,12 @@ const showWinner=(winner)=>{
     msg.innerText=`Congratulations, Winner is "${winner}"`;
     msgContainer.classList.remove("hide");
     disableBoxes();
+    mainCont.style.display="none";
 }
 const matchDraw=()=>{
     msg.innerText =`Game was a Draw`
     msgContainer.classList.remove("hide");
+    mainCont.style.display="none";
     disableBoxes();
 }
 
